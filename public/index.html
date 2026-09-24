@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generative UI by Audrey Lewis — Shape, Atomic, Adjust, Common Use Case</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+<div id="introScreen">
+  <div class="intro-bg-reveal" id="introBgReveal"></div>
+  <div class="intro-card">
+    <div class="intro-kicker">Generative UI by Audrey Lewis</div>
+    <div class="intro-input" id="introInput"><span id="introTyped"></span><span class="cursor"></span></div>
+    <div class="intro-thinking" id="introThinking"><span class="dot"></span><span class="dot"></span><span class="dot"></span> composing a response</div>
+    <div class="intro-result" id="introResult">
+      <div class="intro-slide-track" id="introSlideTrack">
+        <div class="intro-slide" id="introSlideBudget"></div>
+        <div class="intro-slide" id="introSlideChecklist"></div>
+      </div>
+    </div>
+    <div class="intro-tagline" id="introTagline">
+      One task. Many ways to design a response.
+      <span class="sub-line">See how design systems can work with AI to decide what to show you.</span>
+    </div>
+    <button class="intro-next" id="introNext">Next</button>
+  </div>
+</div>
+<button class="intro-skip" id="introSkip">Skip intro</button>
+
+<div class="stage-switch">
+  <button class="stage-btn s1" id="tabStage1"><span class="name">Shape</span></button>
+  <button class="stage-btn s2" id="tabStage2"><span class="name">Atomic</span></button>
+  <button class="stage-btn s3" id="tabStage3"><span class="name">Adjust</span></button>
+  <span style="width:1px; height:18px; background:var(--stone); flex-shrink:0;"></span>
+  <button class="stage-btn s4" id="tabStage4"><span class="name">Common Use Case</span></button>
+  <span style="width:1px; height:18px; background:var(--stone); flex-shrink:0;"></span>
+  <button class="stage-btn s5" id="tabStage5"><span class="name">Irresponsible</span></button>
+  <span style="width:1px; height:18px; background:var(--stone); flex-shrink:0;"></span>
+  <button class="stage-btn s6" id="tabStage6"><span class="name">Scale</span></button>
+</div>
+
+<!-- ============= STAGE 1 ============= -->
+<div id="stage1View">
+  <div class="wrap">
+    <div class="complexity-level"><span class="complexity-slices"><span class="complexity-slice filled s1"></span><span class="complexity-slice "></span><span class="complexity-slice "></span></span><span class="complexity-label">Complexity 1 of 3</span></div>
+    <div class="kicker s1">SHAPE — SELECTING A PRE-BUILT SHAPE</div>
+    <div class="how-it-works">How it works</div>
+    <p class="sub">At runtime, the AI reasons between 5 preset screens (the checklist, the board, the mood board, the option cards, the narrative) based on the task. It fills it with content, of which the actual screen structure never changes.</p>
+    <div class="mini-shapes">
+      <div class="mini-shape">
+        <div class="mini-shape-visual">
+          <div class="ms-row"><span class="ms-box"></span><span class="ms-line"></span></div>
+          <div class="ms-row"><span class="ms-box"></span><span class="ms-line short"></span></div>
+          <div class="ms-row"><span class="ms-box"></span><span class="ms-line"></span></div>
+        </div>
+        <div class="mini-shape-label">The List-Maker</div>
+      </div>
+      <div class="mini-shape">
+        <div class="mini-shape-visual">
+          <div class="ms-cols">
+            <span class="ms-col" style="height:70%"></span>
+            <span class="ms-col" style="height:100%"></span>
+            <span class="ms-col" style="height:45%"></span>
+          </div>
+        </div>
+        <div class="mini-shape-label">The Planner Board</div>
+      </div>
+      <div class="mini-shape">
+        <div class="mini-shape-visual">
+          <div class="ms-swatches">
+            <span class="ms-swatch" style="background:var(--stage1)"></span>
+            <span class="ms-swatch" style="background:var(--clay)"></span>
+            <span class="ms-swatch" style="background:var(--slate)"></span>
+            <span class="ms-swatch" style="background:var(--anchor)"></span>
+          </div>
+        </div>
+        <div class="mini-shape-label">The Visualizer</div>
+      </div>
+      <div class="mini-shape">
+        <div class="mini-shape-visual">
+          <div class="ms-cards">
+            <span class="ms-card"></span><span class="ms-card"></span><span class="ms-card"></span>
+          </div>
+        </div>
+        <div class="mini-shape-label">The Concierge</div>
+      </div>
+      <div class="mini-shape">
+        <div class="mini-shape-visual">
+          <div class="ms-row"><span class="ms-line"></span></div>
+          <div class="ms-row"><span class="ms-line"></span></div>
+          <div class="ms-row"><span class="ms-line short"></span></div>
+        </div>
+        <div class="mini-shape-label">The Storyteller</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <hr class="rule">
+    <div class="s1-app-screen-wrap">
+      <div class="s1-app-screen">
+        <div class="s1-app-chrome"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span><span class="s1-app-chrome-label">Generative UI — Shape</span></div>
+        <div class="s1-app-body">
+          <h2 style="font-size:1.15rem">Describe the party you want to plan</h2>
+          <div class="s1-input-group">
+            <textarea id="s1Brief" placeholder="Describe a task with real constraints...">Planning a 4 year old's birthday party. I want every color to be a symbol of their age and also have the color associated to an animal.</textarea>
+            <div class="s1-brief-hint">Try adding a budget, guest count, or theme. The more specific, the better the shape.</div>
+            <div><button class="primary s1" id="s1ComposeBtn">Compose</button></div>
+          </div>
+
+          <div id="s1PlanArea"></div>
+
+          <div class="mode-tabs" id="s1ModeTabs"></div>
+          <div id="s1Content"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============= STAGE 2 ============= -->
+<div id="stage2View" style="display:none">
+  <div class="wrap">
+    <div class="complexity-level"><span class="complexity-slices"><span class="complexity-slice filled s2"></span><span class="complexity-slice filled s2"></span><span class="complexity-slice "></span></span><span class="complexity-label">Complexity 2 of 3</span></div>
+    <div class="kicker s2">ATOMIC — COMPOSING FROM ATOMS</div>
+    <div class="how-it-works">How it works</div>
+    <p class="sub">This is the harder version: instead of choosing one of five finished screens, the model composes a response from six real, fixed components, deciding which ones, how many, and what data goes in each, for this specific task. What it can't do that Shape also can't: invent a component that isn't in the catalog below.</p>
+  </div>
+
+  <div class="wide">
+    <div class="wrap" style="max-width:none">
+      <div class="catalog-subheader">The closed component set</div>
+    </div>
+    <div class="catalog-grid" id="catalog"></div>
+  </div>
+
+  <div class="wrap">
+    <hr class="rule">
+    <div class="s1-app-screen-wrap">
+      <div class="s1-app-screen">
+        <div class="s1-app-chrome"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span><span class="s1-app-chrome-label">Generative UI — Atomic</span></div>
+        <div class="s1-app-body">
+          <h2 style="font-size:1.15rem">Describe the party you want to plan</h2>
+          <div class="s1-input-group">
+            <textarea id="s2Brief" placeholder="Describe a task with real constraints...">Planning a surprise 30th birthday party in 10 days. Budget is $600. Still need to lock the venue, order a cake, and confirm 12 of the 18 guests invited.</textarea>
+            <div class="s1-brief-hint">Try adding a budget, guest count, or theme. The more specific, the better the composition.</div>
+            <div><button class="primary s2" id="s2ComposeBtn">Compose</button></div>
+          </div>
+
+          <div id="planArea"></div>
+          <div id="renderArea"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============= STAGE 3 ============= -->
+<div id="stage3View" style="display:none">
+  <div class="wrap">
+    <div class="complexity-level"><span class="complexity-slices"><span class="complexity-slice filled s3"></span><span class="complexity-slice filled s3"></span><span class="complexity-slice filled s3"></span></span><span class="complexity-label">Complexity 3 of 3</span></div>
+    <div class="kicker s3">ADJUST — NEGOTIATED COMPOSITION</div>
+    <div class="how-it-works">How it works</div>
+    <p class="sub">Atomic is one-shot: task in, composition out, done. Here you can talk back, and the model edits the existing composition instead of starting over. You can swap a component's type ("swap the checklist for a stat bar"), add one ("add a card for the caterer," within the 3–6 limit), remove one, or edit a component's data in place ("give the budget a $50 buffer"). Added or changed components get marked; anything unmentioned stays as it was.</p>
+    <div class="adjust-diagram">
+      <div class="adj-group-label">Before</div>
+      <div class="adj-row">
+        <div class="adj-chip-wrap"><span class="adj-chip">Checklist</span></div>
+        <div class="adj-chip-wrap"><span class="adj-chip">Budget</span></div>
+        <div class="adj-chip-wrap"><span class="adj-chip">Board</span></div>
+        <div class="adj-chip-wrap"><span class="adj-chip">Cards</span></div>
+      </div>
+      <div class="adj-arrow">↓ "swap the board for a stat bar," "add a card for the caterer," "give the budget a $50 buffer"</div>
+      <div class="adj-group-label">After one edit request</div>
+      <div class="adj-row">
+        <div class="adj-chip-wrap"><span class="adj-chip">Checklist</span><span class="adj-caption">unchanged</span></div>
+        <div class="adj-chip-wrap"><span class="adj-chip edited">Budget</span><span class="adj-caption">edited</span></div>
+        <div class="adj-chip-wrap"><span class="adj-chip swapped">Stat Bar</span><span class="adj-caption">swapped</span></div>
+        <div class="adj-chip-wrap"><span class="adj-chip removed">Cards</span><span class="adj-caption">removed</span></div>
+        <div class="adj-chip-wrap"><span class="adj-chip added">Caterer</span><span class="adj-caption">added</span></div>
+      </div>
+    </div>
+    <div class="rules-note">
+      <strong>The standing rules, stated up front (not left implicit):</strong> the six-component library and the 3–6 count limit always outrank any request, even one that would need a 7th slot or a new component type. Ambiguous requests get the smallest change that plausibly satisfies them, favoring editing an existing component over adding a new one. Anything you don't mention stays exactly as it was.
+    </div>
+  </div>
+
+  <div class="wrap">
+    <hr class="rule">
+    <h2 style="font-size:1.15rem">Start with a task</h2>
+    <p class="sub">Describe something with real constraints — a deadline, a budget, several moving parts.</p>
+    <div class="panel">
+      <textarea id="s3Brief" placeholder="Describe a task with real constraints...">Planning a surprise 30th birthday party in 10 days. Budget is $600. Still need to lock the venue, order a cake, and confirm 12 of the 18 guests invited.</textarea>
+      <div><button class="primary s3" id="s3ComposeBtn">Compose</button></div>
+    </div>
+
+    <div id="s3PlanArea"></div>
+    <div id="s3RenderArea"></div>
+
+    <div id="s3NegotiateArea" style="display:none">
+      <div class="panel">
+        <h2 style="font-size:1.05rem">Ask for a change</h2>
+        <p class="sub" style="margin-bottom:0">e.g. "swap the checklist for a stat bar", "add a card for the caterer", "this needs more detail on the venue"</p>
+        <div class="negotiate-row">
+          <input type="text" id="s3EditInput" placeholder="What would you change?">
+          <button class="primary s3" id="s3EditBtn">Apply</button>
+        </div>
+      </div>
+      <div class="panel" id="s3LogPanel" style="display:none">
+        <h2 style="font-size:1.05rem">Edit history</h2>
+        <div class="edit-log" id="s3EditLog"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============= STAGE 4 ============= -->
+<div id="stage4View" style="display:none">
+  <div class="wrap">
+    <div class="kicker s4">COMMON USE CASE — EXPLORE VS. DIRECT PATH</div>
+    <h1 style="font-size:1.15rem">Two entry points, because they're two different jobs.</h1>
+    <p class="sub">One box trying to serve both "I know exactly what I want" and "help me figure out what I want" tends to serve neither well. This splits them at the door, and only brings them back together once something from exploring has actually converged.</p>
+    <p class="sub" style="margin-top:10px"><strong>Not a fourth difficulty tier.</strong> Shape, Atomic, and Adjust are a real ladder where each one is strictly harder to build and contains the last. This isn't harder than any of them; it's a decision about which entry pattern a person meets first, built on top of the mechanisms already there. The precision option below just calls the Atomic mechanic directly; the explore option's handoff drops straight into Adjust's negotiation state.</p>
+  </div>
+
+  <div class="wrap" id="s4EntryScreen">
+    <div class="path-diagram">
+      <span class="path-diagram-root">Task</span>
+      <ul class="path-branches">
+        <li class="path-branch precision">
+          <span class="path-branch-label">Precision</span>
+          <div class="path-flow">
+            <span class="path-chip">Describe once</span>
+            <span class="path-sep">→</span>
+            <span class="path-chip end">Atomic composer</span>
+          </div>
+        </li>
+        <li class="path-branch curate">
+          <span class="path-branch-label">Curate / Variety</span>
+          <div class="path-flow">
+            <span class="path-chip">Loose idea</span>
+            <span class="path-sep">→</span>
+            <span class="path-chip">Several angles</span>
+            <span class="path-sep">→</span>
+            <span class="path-chip">Pick one</span>
+            <span class="path-sep">→</span>
+            <span class="path-chip end">Adjust: negotiate</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="entry-grid">
+      <button class="entry-card precision" id="s4PickDirect">
+        <span class="purpose">PRECISION</span>
+        <h3>I know what I want</h3>
+        <p>Describe it once, get one correct composition back. This is the Atomic composer used exactly as before — one call, one result, no browsing.</p>
+      </button>
+      <button class="entry-card curate" id="s4PickExplore">
+        <span class="purpose">CURATE / VARIETY</span>
+        <h3>Help me explore</h3>
+        <p>Start from a loose idea. The model proposes several genuinely different angles, composed from the same atoms, and you narrow from there.</p>
+      </button>
+    </div>
+  </div>
+
+  <!-- DIRECT PATH -->
+  <div class="wrap" id="s4DirectFlow" style="display:none">
+    <hr class="rule">
+    <button class="ghost" id="s4DirectBack">← back to entry points</button>
+    <h2 style="font-size:1.15rem; margin-top:16px">Precision path</h2>
+    <p class="sub">Same mechanic as Atomic: one task, one atomic composition, no variety to browse.</p>
+    <div class="panel">
+      <textarea id="s4DirectBrief" placeholder="Describe exactly what you need...">Planning a surprise 30th birthday party in 10 days. Budget is $600. Still need to lock the venue, order a cake, and confirm 12 of the 18 guests invited.</textarea>
+      <div><button class="primary s2" id="s4DirectComposeBtn">Compose</button></div>
+    </div>
+    <div id="s4DirectPlanArea"></div>
+    <div id="s4DirectRenderArea"></div>
+  </div>
+
+  <!-- EXPLORE PATH -->
+  <div class="wrap" id="s4ExploreFlow" style="display:none">
+    <hr class="rule">
+    <button class="ghost" id="s4ExploreBack">← back to entry points</button>
+    <h2 style="font-size:1.15rem; margin-top:16px">Explore path</h2>
+    <p class="sub">A loose idea, one or two quick questions, then a spread of divergent starting points — not one answer.</p>
+
+    <div class="panel" id="s4ExploreIntake">
+      <textarea id="s4ExploreTopic" placeholder="What are you loosely trying to figure out?">Something to help me pull off a surprise 30th birthday party without losing my mind.</textarea>
+      <div id="s4ElicitBlock"></div>
+      <div><button class="primary s4" id="s4GenSeedsBtn">See starting points</button></div>
+      <span class="skip-link" id="s4SkipElicit">skip the questions, just show me options</span>
+    </div>
+
+    <div id="s4ConstraintArea" style="display:none">
+      <div class="panel">
+        <h2 style="font-size:1rem; margin-bottom:2px">Constraints so far</h2>
+        <p class="sub" style="margin-bottom:0">Each one narrows the next batch. Remove one to loosen back up.</p>
+        <div class="constraint-bar" id="s4ConstraintChips"></div>
+        <button class="constraint-add" id="s4ShowConstraintInput">+ add a constraint</button>
+        <div class="constraint-input-row" id="s4ConstraintInputRow">
+          <input type="text" id="s4ConstraintInput" placeholder="e.g. cheaper, shorter timeline, less formal">
+          <button class="primary s4" id="s4AddConstraintBtn">Add</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="s4SeedsArea"></div>
+
+    <div class="honesty">
+      <strong>Progressive narrowing:</strong> adding a constraint re-runs the seed generation with everything so far — the topic, any elicitation answers, and every constraint chip — so each batch is a strict refinement of the last, not a random reshuffle. Picking a seed hands its full composition to Adjust, so refining it from there uses the same negotiated-edit mechanic already built, rather than a separate flow.
+    </div>
+  </div>
+</div>
+
+<!-- ============= STAGE 5 ============= -->
+<div id="stage5View" style="display:none">
+  <div class="wrap">
+    <div class="kicker s5">IRRESPONSIBLE — NO CLOSED SET, NO RULES</div>
+    <h1 style="font-size:1.15rem">What happens when nothing is fixed.</h1>
+    <p class="sub">Shape picks from 5 screens. Atomic composes from 6 components. Adjust edits under standing rules that always win. This is what's left once you remove all three — the model free-styling a UI for the same brief, with no shared vocabulary and no memory of the last answer.</p>
+    <div class="ir-controls">
+      <button class="primary s5" id="irRegenBtn">Regenerate</button>
+      <span class="ir-variant-label" id="irVariantLabel">Attempt 1 of 4</span>
+    </div>
+    <div class="ir-frame" id="irFrame">
+      <div class="ir-render" id="irRender"></div>
+      <div class="ir-caption-bar" id="irCaption"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============= STAGE 6 ============= -->
+<div id="stage6View" style="display:none">
+  <div class="wrap">
+    <div class="kicker s6">SCALE — WHAT SHIPS UNDER IT</div>
+    <h1 style="font-size:1.15rem">The same edit, at production speed.</h1>
+    <p class="sub">A negotiated edit still has to become real, shipped UI without lying to the person watching it happen. This is that pipeline: an optimistic paint first, then the real diff catching up behind it.</p>
+    <div class="ir-controls">
+      <button class="primary s6" id="scaleRunBtn">Run the edit: budget bar → accent color</button>
+      <span class="scale-badge" id="scaleBadge">idle</span>
+    </div>
+    <div class="scale-frame">
+      <div class="scale-preview-pane">
+        <div class="scale-preview-label">Live preview</div>
+        <div class="scale-preview-card">
+          <div class="scale-preview-title">Party Budget</div>
+          <div class="scale-preview-bar"><div class="scale-preview-fill" id="scaleFill"></div></div>
+        </div>
+      </div>
+      <div class="scale-pipeline" id="scalePipeline">
+        <div class="scale-step" data-step="1">
+          <span class="scale-step-num">1</span>
+          <div class="scale-step-body"><span class="scale-step-label">Optimistic paint</span></div>
+        </div>
+        <div class="scale-step" data-step="2">
+          <span class="scale-step-num">2</span>
+          <div class="scale-step-body">
+            <span class="scale-step-label">AST diff computed</span>
+            <code class="scale-diff" id="scaleDiff">fill.background: var(--stage1) → var(--accent)</code>
+          </div>
+        </div>
+        <div class="scale-step" data-step="3">
+          <span class="scale-step-num">3</span>
+          <div class="scale-step-body"><span class="scale-step-label">Synced to sandbox</span></div>
+        </div>
+        <div class="scale-step" data-step="4">
+          <span class="scale-step-num">4</span>
+          <div class="scale-step-body"><span class="scale-step-label">HMR swap → confirmed</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="js/stage-switcher.js"></script>
+<script src="js/stage5-irresponsible.js"></script>
+<script src="js/stage6-scale.js"></script>
+<script src="js/claude-client.js"></script>
+<script src="js/stage1.js"></script>
+<script src="js/stage2.js"></script>
+<script src="js/stage3.js"></script>
+<script src="js/stage4.js"></script>
+<script src="js/intro.js"></script>
+
+</body>
+</html>

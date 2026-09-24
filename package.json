@@ -1,0 +1,19 @@
+{
+  "name": "generative-ui-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Generative UI Lab — a demo of shape/atomic/adjust/common-use-case approaches to AI-generated UI, backed by the Claude API.",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.128.0",
+    "dotenv": "^18.0.3",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
