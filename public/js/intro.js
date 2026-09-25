@@ -14,7 +14,7 @@
   const introBgReveal = document.getElementById('introBgReveal');
   if (!introScreen) return;
 
-  const DEMO_TEXT = "Plan a 34th birthday party, cactus themed, happening in 10 days, budget $2000.";
+  const DEMO_TEXT = "Plan a 34th birthday party, elevated cactus themed, green and white, happening in 10 days, budget $2000.";
   const BUDGET_TARGET = 2000;
   const CHECKLIST_ITEMS = [
     { text: 'Lock the venue', done: false },

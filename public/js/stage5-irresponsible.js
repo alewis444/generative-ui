@@ -1,6 +1,15 @@
 /* ---------- Irresponsible: curated "no design system" variants ---------- */
 const IR_VARIANTS = [
   {
+    caption: '<strong>Font:</strong> rounded / playful · <strong>Palette:</strong> pastel · <strong>Structure:</strong> none — one paragraph',
+    html: `
+      <div style="background: #f7ecf5; border-radius: 24px; padding: 22px 24px; display: flex; justify-content: center;">
+        <p style="font-family: 'Comic Sans MS', 'Bricolage Grotesque', cursive, sans-serif; font-size: 14px; line-height: 1.7; color: #6b3f66; max-width: 46ch; margin: 0; text-align: center;">
+          Okay so for your 34th birthday bash 🌵🎉 here's the plan: you'll want to lock down a venue soon since you only have 10 days, don't forget the cactus-themed cake (maybe ask a local bakery!), and keep an eye on that $2000 budget because decorations and snacks add up fast — also follow up with the 6 guests who haven't RSVP'd yet, that's kind of important. Good luck!! 🥳
+        </p>
+      </div>`
+  },
+  {
     caption: '<strong>Font:</strong> Arial · <strong>Palette:</strong> navy corporate blue · <strong>Structure:</strong> dense data table',
     html: `
       <div style="font-family: Arial, Helvetica, sans-serif; background: #ffffff;">
@@ -16,15 +25,6 @@ const IR_VARIANTS = [
           <tr><td style="border: 1px solid #ccc; padding: 4px 6px;">Guest list</td><td style="border: 1px solid #ccc; padding: 4px 6px;">12/18 confirmed</td><td style="border: 1px solid #ccc; padding: 4px 6px;">6 pending</td></tr>
           <tr style="background:#f2f2f2;"><td style="border: 1px solid #ccc; padding: 4px 6px;">Budget</td><td style="border: 1px solid #ccc; padding: 4px 6px;">$0 / $2000</td><td style="border: 1px solid #ccc; padding: 4px 6px;">Nothing spent yet</td></tr>
         </table>
-      </div>`
-  },
-  {
-    caption: '<strong>Font:</strong> rounded / playful · <strong>Palette:</strong> pastel · <strong>Structure:</strong> none — one paragraph',
-    html: `
-      <div style="background: #f7ecf5; border-radius: 24px; padding: 22px 24px; display: flex; justify-content: center;">
-        <p style="font-family: 'Comic Sans MS', 'Bricolage Grotesque', cursive, sans-serif; font-size: 14px; line-height: 1.7; color: #6b3f66; max-width: 46ch; margin: 0; text-align: center;">
-          Okay so for your 34th birthday bash 🌵🎉 here's the plan: you'll want to lock down a venue soon since you only have 10 days, don't forget the cactus-themed cake (maybe ask a local bakery!), and keep an eye on that $2000 budget because decorations and snacks add up fast — also follow up with the 6 guests who haven't RSVP'd yet, that's kind of important. Good luck!! 🥳
-        </p>
       </div>`
   },
   {

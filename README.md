@@ -4,6 +4,31 @@ A demo of different approaches to AI-generated UI (list/board/visual/concierge/s
 component composition, negotiated edits, etc.), originally built as a Claude.ai artifact and
 now wired up to run as a real local app against the Claude API.
 
+## Problem We're Solving
+
+A common pattern in AI product design is to fall back on a single chatbot as the terminal
+interaction surface — even after a person has moved through structured UI (a dashboard, cards,
+buttons) to get there. For example: browse a few dashboard options, pick one, see it rendered
+live, then be dropped into a raw text box to make any further change. That's increasingly
+recognized as an anti-pattern, for a few reasons:
+
+- **It throws away the structure you just built.** The person just spent several steps building
+  shared context visually; a blank chat input asks them to re-articulate all of it in prose.
+- **It hides the action space instead of showing it.** Buttons and cards make the possible
+  actions discoverable. A chat box shows nothing — the person has to guess what's expressible.
+- **It reintroduces ambiguity the structured steps were designed to remove.** A click has a
+  deterministic outcome; a sentence has to be parsed and mapped onto a constrained action space,
+  which is strictly less reliable, with no benefit on the common cases.
+- **It's often a design cop-out, not a decision.** "We don't know how to build controls for
+  every edge case, so add a chat box that can do anything" ships fast, but pushes design work
+  from build-time onto the user at run-time, every time.
+
+This project explores the alternative: a ladder of approaches (Shape → Atomic → Adjust → Common
+Use Case) where free text, when it's offered at all, is a narrow escape hatch for describing an
+*edit* — constrained by a fixed component library and a diff-not-regenerate rule — and the
+result always lands back in structured UI, not a scrolling chat transcript. Chat is a tool for
+one well-defined step, never the final, catch-all destination.
+
 ## Structure
 
 ```
