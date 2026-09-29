@@ -13,6 +13,6 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use('/api/generate', generateRouter);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Generative UI Lab running at http://localhost:${PORT}`);
 });
