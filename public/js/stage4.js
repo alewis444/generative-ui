@@ -132,7 +132,7 @@ function s4RenderSeeds() {
       <div class="angle">${esc(seed.angle)}</div>
       <div class="angle-note">${esc(seed.note)}</div>
       <div class="mini-atoms">${(seed.composition || []).map(c => `<div class="atom-wrap">${renderAtom(c.type, c.props)}</div>`).join('')}</div>
-      <button class="primary s4 pick-btn" data-i="${i}">This one — refine it directly</button>
+      <button class="primary s4 pick-btn" data-i="${i}">This One, Refine</button>
     </div>`).join('')}</div>`;
   seedsArea.querySelectorAll('.pick-btn').forEach(btn => {
     btn.addEventListener('click', () => s4HandoffToStage3(s4State.seeds[Number(btn.dataset.i)]));
