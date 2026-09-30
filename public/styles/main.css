@@ -46,6 +46,7 @@
     margin: 0; color: var(--ink);
     font-family: 'Inter', system-ui, sans-serif;
     padding: 64px 20px 100px;
+    overflow-x: hidden;
     background-color: #F1EBDF;
     background-image:
       radial-gradient(ellipse 70% 50% at 80% 10%, rgba(255,255,255,0.6), transparent 72%),
@@ -63,6 +64,9 @@
   }
   .wrap { max-width: 760px; margin: 0 auto; position: relative; }
   .wide { max-width: 760px; margin: 0 auto; position: relative; }
+  @media (max-width: 700px) {
+    body { padding: 32px 14px 60px; }
+  }
 
   /* Two-column layout: main "how it works" content keeps .wrap's exact centering;
      the "example products" sidebar hangs in the right gutter, top-aligned with it. */
@@ -112,10 +116,11 @@
 
   /* Top-level stage switcher */
   .stage-switch {
-    max-width: 760px; margin: 0 auto 40px; display: flex; justify-content: center;
-    align-items: center; gap: 30px;
-    border-bottom: 1px solid var(--stone); padding: 0 4px;
+    max-width: 760px; margin: 0 auto 40px; display: flex; flex-wrap: wrap; justify-content: center;
+    align-items: center; gap: 10px 30px;
+    border-bottom: 1px solid var(--stone); padding: 0 4px 8px;
   }
+  .nav-sep { width: 1px; height: 18px; background: var(--stone); flex-shrink: 0; }
   .stage-btn {
     flex: 0 0 auto; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.86rem;
     padding: 10px 1px 12px; border: none; background: none; cursor: pointer;
@@ -131,6 +136,11 @@
   .stage-btn.active.s4 { color: var(--stage4); border-bottom-color: var(--stage4); }
   .stage-btn.active.s5 { color: var(--stage5); border-bottom-color: var(--stage5); }
   .stage-btn.active.s6 { color: var(--stage6); border-bottom-color: var(--stage6); }
+  @media (max-width: 700px) {
+    .stage-switch { gap: 8px 18px; }
+    .nav-sep { display: none; }
+    .stage-btn { padding: 8px 1px 10px; font-size: 0.82rem; }
+  }
 
   /* Catalog / template gallery */
   /* Mini shape previews under "How it works" on the Shape screen */
@@ -339,7 +349,7 @@
     border: 1px solid var(--stone); border-radius: 6px; padding: 26px 28px; margin-top: 26px;
     box-shadow: var(--shadow-soft);
   }
-  textarea { width: 100%; font-family: 'Inter', sans-serif; font-size: 0.95rem; padding: 12px 14px; border: 1px solid var(--stone); border-radius: 4px; resize: vertical; min-height: 70px; background: var(--linen); color: var(--ink); }
+  textarea { width: 100%; font-family: 'Inter', sans-serif; font-size: 0.95rem; padding: 12px 14px; border: 1px solid var(--stone); border-radius: 4px; resize: vertical; min-height: 130px; background: var(--linen); color: var(--ink); }
   textarea:focus, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   button.primary {
     font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase;
@@ -474,6 +484,7 @@
     color: var(--s1d-gold); opacity: 0.85;
   }
   .s1-app-body { padding: 26px 28px 32px; }
+  @media (max-width: 480px) { .s1-app-body { padding: 18px 16px 22px; } }
   .s1-app-screen h2 {
     color: var(--s1d-ink); text-align: left; margin-top: 0;
     font-family: var(--s1d-serif); font-weight: 600; letter-spacing: -0.01em;
@@ -711,6 +722,7 @@
     position: fixed; inset: 0; z-index: 2000;
     display: flex; align-items: center; justify-content: center;
     padding: 20px;
+    overflow-y: auto;
     background-color: #F1EBDF;
     background-image:
       radial-gradient(ellipse 70% 50% at 80% 10%, rgba(255,255,255,0.6), transparent 72%),
@@ -718,7 +730,10 @@
       radial-gradient(ellipse 60% 65% at 10% 85%, rgba(230,217,190,0.55), transparent 72%),
       radial-gradient(ellipse 55% 45% at 30% 15%, rgba(255,253,248,0.55), transparent 72%),
       radial-gradient(ellipse 50% 60% at 55% 95%, rgba(223,209,181,0.4), transparent 72%);
-    overflow: hidden;
+    overflow-x: hidden;
+  }
+  @media (max-height: 700px) {
+    #introScreen { align-items: flex-start; padding-top: 28px; }
   }
   .intro-bg-reveal {
     position: absolute; inset: 0; z-index: 0;
@@ -809,3 +824,15 @@
     cursor: pointer;
   }
   .intro-skip:hover { border-color: var(--ink-soft); color: var(--ink); }
+  @media (max-width: 480px) {
+    #introScreen { padding: 12px; }
+    .intro-card { padding: 20px 18px 18px; }
+    .intro-kicker { font-size: 0.6rem; margin-bottom: 12px; letter-spacing: 0.1em; }
+    .intro-input { font-size: 0.88rem; padding: 11px 13px; min-height: 42px; }
+    .intro-thinking.show { margin-top: 12px; }
+    .intro-result { margin-top: 14px; }
+    .intro-tagline { margin-top: 14px; padding-top: 14px; font-size: 0.95rem; }
+    .intro-tagline .sub-line { font-size: 0.78rem; }
+    .intro-next { padding: 11px 16px; margin-top: 14px; }
+    .intro-skip { bottom: 14px; right: 14px; padding: 6px 12px; font-size: 0.76rem; }
+  }
