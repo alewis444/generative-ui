@@ -638,11 +638,12 @@
   .atom-wrap.added .diff-tag { background: var(--stage3-soft); color: var(--stage3); }
   .atom-wrap.changed .diff-tag { background: var(--accent-soft); color: var(--accent); }
 
-  .negotiate-row { display: flex; gap: 8px; margin-top: 16px; }
+  .negotiate-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
   .negotiate-row input {
-    flex: 1; font-family: 'Inter', sans-serif; font-size: 0.9rem; padding: 10px 13px;
+    flex: 1; min-width: 160px; font-family: 'Inter', sans-serif; font-size: 0.9rem; padding: 10px 13px;
     border: 1px solid var(--stone); border-radius: 4px; background: var(--linen); color: var(--ink);
   }
+  .negotiate-row button { flex-shrink: 0; }
   .negotiate-row input:focus { outline: 2px solid var(--stage3); outline-offset: 1px; }
   .rules-note {
     font-size: 0.82rem; color: var(--ink-soft); background: var(--stage3-soft);
